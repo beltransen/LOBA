@@ -1,0 +1,206 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Proyecto LOBA · URJC</title>
+  <meta name="description" content="LOBA: Localización de objetos anómalos en entornos estructurados mediante plataformas robóticas móviles. Proyecto de I+D de la Universidad Rey Juan Carlos (2024-2026).">
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%231f5f8b'/><text x='16' y='22' font-size='16' font-family='sans-serif' font-weight='700' fill='white' text-anchor='middle'>L</text></svg>">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap header-row">
+    <a class="brand" href="#inicio">LOBA</a>
+    <nav aria-label="Secciones">
+      <a href="#proyecto">Proyecto</a>
+      <a href="#resultados">Resultados</a>
+      <a href="#publicaciones">Publicaciones</a>
+      <a href="#software">Software</a>
+      <a href="#equipo">Equipo</a>
+      <a href="#financiacion">Financiación</a>
+    </nav>
+  </div>
+</header>
+
+<main id="inicio">
+
+  <section class="hero">
+    <div class="wrap">
+      <p class="eyebrow">Proyecto de I+D · Universidad Rey Juan Carlos · 2024–2026</p>
+      <h1>Localización de objetos anómalos en entornos estructurados mediante plataformas robóticas móviles</h1>
+      <p class="lead">LOBA investiga cómo los robots móviles pueden percibir y localizar objetos que no conocen de antemano, y cómo esa percepción puede integrarse en los sistemas de localización y mapeado (SLAM) que les permiten navegar de forma autónoma.</p>
+      <ul class="facts">
+        <li><span>Periodo</span>1 nov 2024 – 31 oct 2026</li>
+        <li><span>Referencia</span>2023/00423/008</li>
+        <li><span>Grupo</span>Intelligent Robotics Lab (URJC)</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="proyecto" class="section">
+    <div class="wrap">
+      <h2>El proyecto</h2>
+      <div class="two-col">
+        <div>
+          <p>Los sistemas de percepción actuales detectan e identifican los objetos que ya forman parte de su base de conocimiento. Los objetos no vistos durante el entrenamiento pasan desapercibidos o se clasifican de forma errónea, lo que limita el uso de robots en tareas de vigilancia e inspección en entornos abiertos al público, como campus universitarios, hospitales o aeropuertos.</p>
+          <p>LOBA aborda este problema combinando visión por computador e información 3D (cámaras RGB-D y LiDAR) a bordo de robots móviles, y estudia cómo aprovechar esa información semántica para mejorar la localización y el mapeado del robot.</p>
+          <p>Como caso de uso, el robot TIAGo de PAL Robotics se ha empleado para capturar datos en espacios interiores del campus de Fuenlabrada de la URJC.</p>
+        </div>
+        <div class="card">
+          <h3>Objetivos</h3>
+          <ol class="goals">
+            <li>Detectar y localizar en 3D objetos, incluidos los no presentes en los datos de entrenamiento.</li>
+            <li>Explotar la información semántica de la escena en algoritmos de SLAM.</li>
+            <li>Validar los desarrollos en plataformas robóticas reales.</li>
+            <li>Publicar el software en abierto, integrado en ROS 2.</li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="resultados" class="section alt">
+    <div class="wrap">
+      <h2>Resultados principales</h2>
+      <div class="grid grid-2">
+        <article class="card result">
+          <p class="tag">Percepción + SLAM</p>
+          <h3>Impacto de la percepción semántica en LiDAR SLAM</h3>
+          <p>Metodología e infraestructura software modular para evaluar de forma sistemática cómo afecta el filtrado de nubes de puntos guiado por percepción (detectores 3D sobre LiDAR y cámara, incluido un detector de vocabulario abierto, y segmentación semántica) a la precisión de algoritmos de LiDAR SLAM.</p>
+          <p class="finding"><strong>Hallazgo:</strong> eliminar de forma agresiva los puntos asociados a objetos degrada la localización, mientras que restringir la nube al campo de visión de la cámara mejora el error absoluto de trayectoria (APE). Es una advertencia útil frente a la integración «ingenua» de la semántica en SLAM.</p>
+          <p class="links"><a href="#software">Código</a> · <a href="https://hdl.handle.net/10115/477837">TFG</a></p>
+        </article>
+        <article class="card result">
+          <p class="tag">Navegación</p>
+          <h3>Traversabilidad aprendida de la experiencia</h3>
+          <p><em>I Move Therefore I Learn</em>: un método con el que el robot aprende qué terrenos puede atravesar a partir de su propia experiencia de navegación, sin necesidad de datos etiquetados ni de conocer explícitamente la clase del terreno. Combina mapas de elevación y textura, un autocodificador variacional y agrupamiento BIRCH.</p>
+          <p class="finding"><strong>Validación:</strong> bancos de prueba sintéticos y escenarios reales con robots de ruedas y de patas, con implementación abierta en ROS 2.</p>
+          <p class="links"><a href="https://doi.org/10.1109/ACCESS.2026.3714119">Artículo (IEEE Access)</a></p>
+        </article>
+        <article class="card result">
+          <p class="tag">Estado del arte</p>
+          <h3>Revisión crítica de localización y SLAM</h3>
+          <p>Revisión sistemática de la localización de robots móviles: sensores, fusión multisensor, SLAM basado en grafos y representaciones neuronales (NeRF, Gaussian Splatting). Identifica como reto abierto la integración de la comprensión semántica en la localización y propone una métrica de completitud de trayectoria.</p>
+          <p class="links"><a href="https://doi.org/10.3390/robotics15080142">Artículo (Robotics, MDPI)</a></p>
+        </article>
+        <article class="card result">
+          <p class="tag">Dimensión humana</p>
+          <h3>Comprensión de las tecnologías de navegación autónoma</h3>
+          <p>Estudio comparativo con 75 participantes de tres perfiles (público general, profesionales en ROSCon España y estudiantes universitarios) sobre cómo comprenden y adoptan las tecnologías de navegación robótica con ROS 2. Analiza aprendizaje, carga cognitiva y satisfacción.</p>
+          <p class="links"><a href="https://github.com/EasyNavigation/roscon2025_workshop">Material del taller</a></p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="publicaciones" class="section">
+    <div class="wrap">
+      <h2>Publicaciones</h2>
+      <ul class="pubs">
+        <li>
+          <p class="pub-title">I Move Therefore I Learn: Experience-Based Traversability in Outdoor Robotics</p>
+          <p class="pub-authors">M. Á. de Miguel, J. Beltrán, J. S. Cely, F. Martín, J. C. Manzanares, A. García</p>
+          <p class="pub-venue"><em>IEEE Access</em>, vol. 14, 2026 · Acceso abierto (CC BY 4.0)</p>
+          <p class="pub-links"><a href="https://doi.org/10.1109/ACCESS.2026.3714119">DOI: 10.1109/ACCESS.2026.3714119</a></p>
+        </li>
+        <li>
+          <p class="pub-title">Mobile Robot Localization and SLAM: A Critical Review of Sensors, Multi-Sensor Fusion, and Neural Representations</p>
+          <p class="pub-authors">J. M. Guerrero Hernández, R. Pérez-Rodríguez, J. S. Cely, E. Aguado, F. Martín Rico</p>
+          <p class="pub-venue"><em>Robotics</em> (MDPI), 15, 142, 2026 · Acceso abierto (CC BY)</p>
+          <p class="pub-links"><a href="https://doi.org/10.3390/robotics15080142">DOI: 10.3390/robotics15080142</a></p>
+        </li>
+        <li>
+          <p class="pub-title">One Workshop, Three Contexts: Assessing Advanced Software Robotics Training across General, Professional, and Academic Audiences</p>
+          <p class="pub-authors">J. Beltrán, R. Pérez-Rodríguez, E. Aguado, F. M. Moreno, J. M. Guerrero, J. D. Peña-Narváez, J. S. Cely, M. Á. de Miguel, F. Martín</p>
+          <p class="pub-venue">17th International Conference on Robotics in Education (RiE 2026), Wolfenbüttel, 15–17 abril 2026</p>
+          <p class="pub-links"><a href="#"> Pendiente de publicación en las actas del congreso: <em>Lecture Notes in Networks and Systems</em>, vol. 2102 (Springer)</a></p>
+        </li>
+        <li>
+          <p class="pub-title">Integración de percepción 3D en sistemas SLAM: metodología de evaluación y análisis de rendimiento</p>
+          <p class="pub-authors">A. Galea Torrecilla. Tutores: F. M. Moreno Olivo, J. Beltrán de la Cita</p>
+          <p class="pub-venue">Trabajo Fin de Grado, Grado en Ingeniería de Robótica Software, URJC, 2026 · CC BY-NC-SA 4.0</p>
+          <p class="pub-links"><a href="https://hdl.handle.net/10115/477837">hdl.handle.net/10115/477837</a></p>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="software" class="section alt">
+    <div class="wrap">
+      <h2>Software en abierto</h2>
+      <div class="grid">
+        <a class="card repo" href="https://github.com/PQSB/pc_filter">
+          <h3>pc_filter</h3>
+          <p>Paquete ROS 2 (C++) para filtrar nubes de puntos LiDAR por campo de visión de la cámara, segmentación semántica y detecciones 3D. Exporta rosbags y nubes filtradas.</p>
+          <p class="meta">ROS 2 Jazzy · GPL-3.0</p>
+        </a>
+        <a class="card repo" href="https://github.com/PQSB/pc_filter_tools">
+          <h3>pc_filter_tools</h3>
+          <p>Herramientas Python para extraer y sincronizar datos de rosbags, ejecutar detectores 3D (3D-MOOD, OpenPCDet) y evaluar trayectorias SLAM con evo.</p>
+          <p class="meta">Python · GPL-3.0</p>
+        </a>
+        <a class="card repo" href="https://github.com/IntelligentRoboticsLabs/global_navigation">
+          <h3>global_navigation</h3>
+          <p>Implementación ROS 2 del método de traversabilidad basada en experiencia, con los rosbags necesarios para reproducir los resultados.</p>
+          <p class="meta">ROS 2 Jazzy</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section id="equipo" class="section">
+    <div class="wrap">
+      <h2>Equipo</h2>
+      <div class="team">
+        <a class="person person-link" href="https://servicios.urjc.es/pdi/ver/jorge.beltran">
+          <p class="name">Jorge Beltrán de la Cita</p>
+          <p class="role">Investigador principal</p>
+        </a>
+        <a class="person person-link" href="https://servicios.urjc.es/pdi/ver/franciscom.moreno">
+          <p class="name">Francisco Miguel Moreno Olivo</p>
+          <p class="role">Investigador principal</p>
+        </a>
+        <a class="person person-link" href="https://servicios.urjc.es/pdi/ver/josemiguel.guerrero">
+          <p class="name">José Miguel Guerrero Hernández</p>
+          <p class="role">Investigador</p>
+        </a>
+        <a class="person person-link" href="https://servicios.urjc.es/pdi/ver/rodrigo.perez">
+          <p class="name">Rodrigo Pérez Rodríguez</p>
+          <p class="role">Investigador</p>
+        </a>
+        <div class="person">
+          <p class="name">Andrés Galea Torrecilla</p>
+          <p class="role">Técnico de investigación</p>
+        </div>
+        <div class="person">
+          <p class="name">Diego García Currás</p>
+          <p class="role">Técnico de investigación</p>
+        </div>
+      </div>
+      <p class="muted">El proyecto se desarrolla en el <a href="https://github.com/IntelligentRoboticsLabs">Intelligent Robotics Lab</a> de la Universidad Rey Juan Carlos (Escuela de Ingeniería de Fuenlabrada).</p>
+    </div>
+  </section>
+
+  <section id="financiacion" class="section funding">
+    <div class="wrap">
+      <h2>Financiación</h2>
+      <p>Proyecto <strong>LOBA</strong> (ref. <strong>2023/00423/008</strong>), financiado por la <strong>Línea A: Doctores emergentes</strong>, en el marco del Convenio entre la Comunidad de Madrid y la Universidad Rey Juan Carlos para la concesión de una subvención directa para el fomento y promoción de la investigación y la transferencia de tecnología (2023-2026).</p>
+      <div class="logos">
+        <img src="assets/logo-urjc.png" alt="Universidad Rey Juan Carlos" height="64">
+        <img class="logo-tall" src="assets/logo-cam.svg" alt="Comunidad de Madrid" height="96">
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <p>© 2026 Proyecto LOBA · Universidad Rey Juan Carlos</p>
+  </div>
+</footer>
+
+</body>
+</html>
